@@ -55,13 +55,13 @@ namespace BibliotecaTP
             return libroEncontrado;
         }
 
-        public Lector buscarLector(string nombre)
+        public Lector buscarLector(int dni)
         {
             Lector lectorEncontrado = null;
 
             foreach (var lector in lectores)
             {
-                if (lector.getNombre().Equals(nombre))
+                if (lector.getDni().Equals(dni))
                 {
                     lectorEncontrado = lector;
                     break; // Salimos del bucle una vez encontrado
@@ -77,6 +77,40 @@ namespace BibliotecaTP
                 Console.WriteLine("LECTOR INEXISTENTE.");
             }
             return lectorEncontrado;
+        }
+
+        public void altaLector(string nombre, int dni)
+        {
+            Lector lector = new Lector(nombre, dni, new List<Libro>());
+            Console.WriteLine("Lector dado de alta: " + lector.ToString());
+            lectores.Add(lector);
+        }
+
+        public void prestarLibro(string titulo, int dni)
+        {
+            Libro libro = buscarLibro(titulo);
+            Lector lector = buscarLector(dni);
+            if (libro.Equals(null))
+            {
+                Console.WriteLine("El libro " + titulo + " no existe.");
+                return;
+            }
+            if (lector.Equals(null))
+            {
+                Console.WriteLine("El lector con DNI " + dni + " no existe.");
+                return;
+            }
+
+            if (lector.getLibros().Count >= 3)
+            {
+                Console.WriteLine("El lector " + lector.getNombre() + " ya tiene 3 libros prestados.");
+                return;
+            } else
+            {
+                lector.getLibros().Add(libro);
+                libros.Remove(libro);
+                Console.WriteLine("El libro " + libro.getTitulo() + " ha sido prestado a " + "lector.getNombre()");
+            }
         }
     }
 }

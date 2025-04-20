@@ -10,11 +10,13 @@ namespace BibliotecaTP
     {
         private string nombre;
         private int dni;
+        private List<Libro> libros;
 
-        public Lector(string nombre, int dni)
+        public Lector(string nombre, int dni, List<Libro> libros)
         {
             this.nombre = nombre;
             this.dni = dni;
+            this.libros = libros;
         }
 
         public string getNombre()
@@ -25,6 +27,11 @@ namespace BibliotecaTP
         public int getDni()
         {
             return dni;
+        }
+
+        public List<Libro> getLibros()
+        {
+            return libros;
         }
 
         public string toString()
