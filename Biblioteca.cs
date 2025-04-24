@@ -92,24 +92,24 @@ namespace BibliotecaTP
             Lector lector = buscarLector(dni);
             if (libro.Equals(null))
             {
-                Console.WriteLine("El libro " + titulo + " no existe.");
+                Console.WriteLine("LIBRO INEXISTENTE.");
                 return;
             }
             if (lector.Equals(null))
             {
-                Console.WriteLine("El lector con DNI " + dni + " no existe.");
+                Console.WriteLine("LECTOR INEXISTENTE");
                 return;
             }
 
             if (lector.getLibros().Count >= 3)
             {
-                Console.WriteLine("El lector " + lector.getNombre() + " ya tiene 3 libros prestados.");
+                Console.WriteLine("TOPE DE PRESTAMO ALCANZADO.");
                 return;
             } else
             {
                 lector.getLibros().Add(libro);
                 libros.Remove(libro);
-                Console.WriteLine("El libro " + libro.getTitulo() + " ha sido prestado a " + "lector.getNombre()");
+                Console.WriteLine("PRESTAMO EXITOSO.");
             }
         }
     }

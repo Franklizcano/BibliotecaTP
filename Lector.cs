@@ -37,7 +37,8 @@ namespace BibliotecaTP
         public string toString()
         {
             return "Nombre: " + nombre + "\n" +
-                   "DNI: " + dni;
+                   "DNI: " + dni + "\n" +
+                    "Libros: " + libros;
         }
     }
 }
