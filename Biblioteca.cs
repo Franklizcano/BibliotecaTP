@@ -37,7 +37,7 @@ namespace BibliotecaTP
 
             foreach (var libro in libros)
             {
-                if (libro.getTitulo().Equals(titulo))
+                if (libro.GetTitulo().Equals(titulo))
                 {
                     libroEncontrado = libro;
                     break; // Salimos del bucle una vez encontrado
@@ -46,13 +46,13 @@ namespace BibliotecaTP
 
             if (libroEncontrado != null)
             {
-                Console.WriteLine(libroEncontrado.toString());
+                return libroEncontrado;
             }
             else
             {
                 Console.WriteLine("LIBRO INEXISTENTE.");
+                return null;
             }
-            return libroEncontrado;
         }
 
         public Lector buscarLector(int dni)
@@ -70,20 +70,21 @@ namespace BibliotecaTP
 
             if (lectorEncontrado != null)
             {
-                Console.WriteLine(lectorEncontrado.ToString());
+                return lectorEncontrado;
             }
             else
             {
                 Console.WriteLine("LECTOR INEXISTENTE.");
+                return null;
             }
-            return lectorEncontrado;
         }
 
-        public void altaLector(string nombre, int dni)
+        public Lector altaLector(string nombre, int dni)
         {
             Lector lector = new Lector(nombre, dni, new List<Libro>());
-            Console.WriteLine("Lector dado de alta: " + lector.ToString());
+            Console.WriteLine("LECTOR DADO DE ALTA.");
             lectores.Add(lector);
+            return lector;
         }
 
         public void prestarLibro(string titulo, int dni)

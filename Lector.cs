@@ -34,11 +34,15 @@ namespace BibliotecaTP
             return libros;
         }
 
-        public string toString()
+        public string ToString()
         {
+            var librosInfo = libros != null && libros.Any()
+                ? string.Join("\n", libros.Select(libro => libro.ToString()))
+                : "No tiene libros.";
+
             return "Nombre: " + nombre + "\n" +
                    "DNI: " + dni + "\n" +
-                    "Libros: " + libros;
+                   "Libros: " + librosInfo;
         }
     }
 }

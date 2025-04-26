@@ -12,23 +12,23 @@ namespace BibliotecaTP
         private string autor;
         private string editorial;
 
-        Libro(string titulo, string autor, string editorial)
+        public Libro(string titulo, string autor, string editorial)
         {
             this.titulo = titulo;
             this.autor = autor;
             this.editorial = editorial;
         }
 
-        public string getTitulo()
+        public string GetTitulo()
         {
             return titulo;
         }
 
-        public string toString()
+        public string ToString()
         {
-            return "Titulo: " + titulo + "\n" +
-                   "Autor: " + autor + "\n" +
-                   "Editorial: " + editorial;
+            return "Titulo: " + this.titulo + "\n" +
+                   "Autor: " + this.autor + "\n" +
+                   "Editorial: " + this.editorial;
         }
     }
 }
