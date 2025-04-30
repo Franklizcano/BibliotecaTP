@@ -27,7 +27,7 @@ namespace BibliotecaTP
         {
             foreach (var libro in libros)
             {
-                Console.WriteLine(libro.ToString());
+                Console.WriteLine(libro.ToString() + "\n");
             }
         }
 
@@ -50,7 +50,6 @@ namespace BibliotecaTP
             }
             else
             {
-                Console.WriteLine("LIBRO INEXISTENTE.");
                 return null;
             }
         }
@@ -74,7 +73,6 @@ namespace BibliotecaTP
             }
             else
             {
-                Console.WriteLine("LECTOR INEXISTENTE.");
                 return null;
             }
         }
@@ -91,12 +89,12 @@ namespace BibliotecaTP
         {
             Libro libro = buscarLibro(titulo);
             Lector lector = buscarLector(dni);
-            if (libro.Equals(null))
+            if (libro == null)
             {
                 Console.WriteLine("LIBRO INEXISTENTE.");
                 return;
             }
-            if (lector.Equals(null))
+            if (lector == null)
             {
                 Console.WriteLine("LECTOR INEXISTENTE");
                 return;

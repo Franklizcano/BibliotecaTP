@@ -34,6 +34,14 @@ namespace BibliotecaTP
             return libros;
         }
 
+        public void mostrarLibros()
+        {
+            foreach (var libro in getLibros())
+            {
+                Console.WriteLine(libro.ToString()+"\n");
+            }
+        }
+
         public string ToString()
         {
             var librosInfo = libros != null && libros.Any()
