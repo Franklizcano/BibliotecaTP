@@ -10,33 +10,33 @@ namespace BibliotecaTP
     {
         private string nombre;
         private int dni;
-        private List<Libro> libros;
+        private List<Libro> librosPrestados;
 
         public Lector(string nombre, int dni, List<Libro> libros)
         {
             this.nombre = nombre;
             this.dni = dni;
-            this.libros = libros;
+            this.librosPrestados = libros;
         }
 
-        public string getNombre()
+        public string GetNombre()
         {
             return nombre;
         }
 
-        public int getDni()
+        public int GetDni()
         {
             return dni;
         }
 
-        public List<Libro> getLibros()
+        public List<Libro> GetLibros()
         {
-            return libros;
+            return librosPrestados;
         }
 
         public void mostrarLibros()
         {
-            foreach (var libro in getLibros())
+            foreach (var libro in GetLibros())
             {
                 Console.WriteLine(libro.ToString()+"\n");
             }
@@ -44,8 +44,8 @@ namespace BibliotecaTP
 
         public string ToString()
         {
-            var librosInfo = libros != null && libros.Any()
-                ? string.Join("\n", libros.Select(libro => libro.ToString()))
+            var librosInfo = librosPrestados != null && librosPrestados.Any()
+                ? string.Join("\n", librosPrestados.Select(libro => libro.ToString()))
                 : "No tiene libros.";
 
             return "Nombre: " + nombre + "\n" +

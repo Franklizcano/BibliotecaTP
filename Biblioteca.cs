@@ -18,12 +18,12 @@ namespace BibliotecaTP
             lectores = new List<Lector>();
         }
 
-        public void agregarLibro(Libro libro)
+        public void AgregarLibro(Libro libro)
         {
             libros.Add(libro);
         }
 
-        public void mostrarLibros()
+        public void MostrarLibros()
         {
             foreach (var libro in libros)
             {
@@ -31,7 +31,7 @@ namespace BibliotecaTP
             }
         }
 
-        public Libro buscarLibro(string titulo)
+        public Libro BuscarLibro(string titulo)
         {
             Libro libroEncontrado = null;
 
@@ -54,13 +54,13 @@ namespace BibliotecaTP
             }
         }
 
-        public Lector buscarLector(int dni)
+        public Lector BuscarLector(int dni)
         {
             Lector lectorEncontrado = null;
 
             foreach (var lector in lectores)
             {
-                if (lector.getDni().Equals(dni))
+                if (lector.GetDni().Equals(dni))
                 {
                     lectorEncontrado = lector;
                     break; // Salimos del bucle una vez encontrado
@@ -77,7 +77,7 @@ namespace BibliotecaTP
             }
         }
 
-        public Lector altaLector(string nombre, int dni)
+        public Lector AltaLector(string nombre, int dni)
         {
             Lector lector = new Lector(nombre, dni, new List<Libro>());
             Console.WriteLine("LECTOR DADO DE ALTA.");
@@ -85,10 +85,10 @@ namespace BibliotecaTP
             return lector;
         }
 
-        public void prestarLibro(string titulo, int dni)
+        public void PrestarLibro(string titulo, int dni)
         {
-            Libro libro = buscarLibro(titulo);
-            Lector lector = buscarLector(dni);
+            Libro libro = BuscarLibro(titulo);
+            Lector lector = BuscarLector(dni);
             if (libro == null)
             {
                 Console.WriteLine("LIBRO INEXISTENTE.");
@@ -100,13 +100,13 @@ namespace BibliotecaTP
                 return;
             }
 
-            if (lector.getLibros().Count >= 3)
+            if (lector.GetLibros().Count >= 3)
             {
                 Console.WriteLine("TOPE DE PRESTAMO ALCANZADO.");
                 return;
             } else
             {
-                lector.getLibros().Add(libro);
+                lector.GetLibros().Add(libro);
                 libros.Remove(libro);
                 Console.WriteLine("PRESTAMO EXITOSO.");
             }
