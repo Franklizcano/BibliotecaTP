@@ -34,9 +34,9 @@ namespace BibliotecaTP
             return librosPrestados;
         }
 
-        public void mostrarLibros()
+        public void MostrarLibros()
         {
-            foreach (var libro in GetLibros())
+            foreach (var libro in this.GetLibros())
             {
                 Console.WriteLine(libro.ToString()+"\n");
             }

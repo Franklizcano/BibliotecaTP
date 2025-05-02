@@ -9,23 +9,23 @@ namespace BibliotecaTP
 {
     internal class Biblioteca
     {
-        private List<Libro> libros;
-        private List<Lector> lectores;
+        private List<Libro> librosEnBiblioteca;
+        private List<Lector> lectoresRegistrados;
 
         public Biblioteca()
         {
-            libros = new List<Libro>();
-            lectores = new List<Lector>();
+            librosEnBiblioteca = new List<Libro>();
+            lectoresRegistrados = new List<Lector>();
         }
 
         public void AgregarLibro(Libro libro)
         {
-            libros.Add(libro);
+            librosEnBiblioteca.Add(libro);
         }
 
         public void MostrarLibros()
         {
-            foreach (var libro in libros)
+            foreach (var libro in librosEnBiblioteca)
             {
                 Console.WriteLine(libro.ToString() + "\n");
             }
@@ -35,7 +35,7 @@ namespace BibliotecaTP
         {
             Libro libroEncontrado = null;
 
-            foreach (var libro in libros)
+            foreach (var libro in librosEnBiblioteca)
             {
                 if (libro.GetTitulo().Equals(titulo))
                 {
@@ -58,7 +58,7 @@ namespace BibliotecaTP
         {
             Lector lectorEncontrado = null;
 
-            foreach (var lector in lectores)
+            foreach (var lector in lectoresRegistrados)
             {
                 if (lector.GetDni().Equals(dni))
                 {
@@ -81,7 +81,7 @@ namespace BibliotecaTP
         {
             Lector lector = new Lector(nombre, dni, new List<Libro>());
             Console.WriteLine("LECTOR DADO DE ALTA.");
-            lectores.Add(lector);
+            lectoresRegistrados.Add(lector);
             return lector;
         }
 
@@ -107,7 +107,7 @@ namespace BibliotecaTP
             } else
             {
                 lector.GetLibros().Add(libro);
-                libros.Remove(libro);
+                librosEnBiblioteca.Remove(libro);
                 Console.WriteLine("PRESTAMO EXITOSO.");
             }
         }

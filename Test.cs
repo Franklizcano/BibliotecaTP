@@ -28,13 +28,13 @@ namespace BibliotecaTP
             Console.WriteLine("\nPrestando el libro: El Principito a Juan Pérez:\n");
             biblioteca.PrestarLibro("El Principito", 12345678);
             Console.WriteLine("\nLibros actuales del lector:");
-            lector.mostrarLibros();
+            lector.MostrarLibros();
             Console.WriteLine("Intentando prestar 3 libros más a Juan:");
             biblioteca.PrestarLibro("Cien años de soledad", 12345678);
             biblioteca.PrestarLibro("1984", 12345678);
             biblioteca.PrestarLibro("El tunel", 12345678);
             Console.WriteLine("\nLibros actuales del lector:");
-            lector.mostrarLibros();
+            lector.MostrarLibros();
             Console.WriteLine("\nLibros actuales de la biblioteca:");
             biblioteca.MostrarLibros();
             Console.WriteLine("\nPrestando un libro que no existe:");
