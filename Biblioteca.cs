@@ -23,7 +23,7 @@ namespace BibliotecaTP
             librosEnBiblioteca.Add(libro);
         }
 
-        public void MostrarLibros()
+        public void ListarLibros()
         {
             foreach (var libro in librosEnBiblioteca)
             {
@@ -79,7 +79,7 @@ namespace BibliotecaTP
 
         public Lector AltaLector(string nombre, int dni)
         {
-            Lector lector = new Lector(nombre, dni, new List<Libro>());
+            Lector lector = new Lector(nombre, dni);
             Console.WriteLine("LECTOR DADO DE ALTA.");
             lectoresRegistrados.Add(lector);
             return lector;
@@ -111,5 +111,23 @@ namespace BibliotecaTP
                 Console.WriteLine("PRESTAMO EXITOSO.");
             }
         }
+
+        public bool eliminarLibro(string titulo)
+        {
+            bool resultado = false;
+            Libro libro;
+            libro = BuscarLibro(titulo);
+            if (libro != null)
+            {
+                librosEnBiblioteca.Remove(libro);
+                resultado = true;
+            }
+            else
+            {
+                resultado = false;
+            }
+            return resultado;
+        }
+
     }
 }

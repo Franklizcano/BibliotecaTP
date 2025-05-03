@@ -12,11 +12,11 @@ namespace BibliotecaTP
         private int dni;
         private List<Libro> librosPrestados;
 
-        public Lector(string nombre, int dni, List<Libro> libros)
+        public Lector(string nombre, int dni)
         {
             this.nombre = nombre;
             this.dni = dni;
-            this.librosPrestados = libros;
+            this.librosPrestados = new List<Libro>();
         }
 
         public string GetNombre()
@@ -34,7 +34,7 @@ namespace BibliotecaTP
             return librosPrestados;
         }
 
-        public void MostrarLibros()
+        public void ListarLibros()
         {
             foreach (var libro in this.GetLibros())
             {
